@@ -1,0 +1,27 @@
+# Dependências e Builds
+node_modules/
+dist/
+build/
+*.log
+
+# Arquivos de Ambiente e Chaves Sensíveis
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+
+# Sistema Operacional e Editores de Código
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Metadados de ferramentas locais
+.agents/
+.gemini/

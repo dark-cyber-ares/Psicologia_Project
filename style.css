@@ -1,0 +1,1198 @@
+/* 
+========================================================================
+   Dra. Clarice Medeiros - Landing Page de Psicologia Clínica
+   Design System & Estilização Premium (Vanilla CSS)
+========================================================================
+*/
+
+/* ---------------------------------------------------------------------
+   1. Variáveis & Design System
+--------------------------------------------------------------------- */
+:root {
+    /* Cores */
+    --color-primary: #4A6B5D;       /* Verde Sálvia Profundo */
+    --color-primary-light: #5B8372; /* Verde Sálvia Claro */
+    --color-primary-dark: #375045;  /* Verde Sálvia Escuro */
+    
+    --color-secondary: #F4F1EA;     /* Off-white / Areia */
+    --color-secondary-dark: #EAE6DB;/* Areia Escuro */
+    
+    --color-accent: #D39E82;        /* Terracota Suave */
+    --color-accent-light: #DFB29B;  /* Terracota Claro */
+    --color-accent-dark: #BF8263;   /* Terracota Escuro */
+    
+    --color-text-dark: #262B28;     /* Neutro Escuro */
+    --color-text-muted: #59615C;    /* Neutro Médio */
+    --color-text-light: #FFFFFF;    /* Branco */
+    
+    --color-card-bg: #FFFFFF;
+    --color-input-bg: #FCFBF9;
+    --color-border: #E2DDD5;
+    
+    /* Fontes */
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+    
+    /* Espaçamento */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-xxl: 5rem;
+    
+    /* Sombras & Bordas */
+    --border-radius-sm: 8px;
+    --border-radius-md: 16px;
+    --border-radius-lg: 24px;
+    --border-radius-pill: 9999px;
+    --shadow-soft: 0 10px 30px rgba(74, 107, 93, 0.06);
+    --shadow-medium: 0 15px 40px rgba(74, 107, 93, 0.1);
+    --shadow-hover: 0 20px 45px rgba(74, 107, 93, 0.16);
+    
+    /* Transições */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    
+    /* Largura do container */
+    --container-max-width: 1200px;
+}
+
+/* ---------------------------------------------------------------------
+   2. Reset & Configurações Globais
+--------------------------------------------------------------------- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text-dark);
+    background-color: var(--color-secondary);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-fast);
+}
+
+/* ---------------------------------------------------------------------
+   3. Elementos Utilitários & Layout
+--------------------------------------------------------------------- */
+.container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+section {
+    padding: var(--spacing-xxl) 0;
+}
+
+/* Títulos das Seções */
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--spacing-xl);
+}
+
+.section-tagline {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent-dark);
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-primary-dark);
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+}
+
+/* Botões */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--border-radius-pill);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    text-align: center;
+}
+
+.btn-lg {
+    padding: 1rem 2.25rem;
+    font-size: 1.0625rem;
+}
+
+.btn-block {
+    width: 100%;
+    display: flex;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 107, 93, 0.2);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    transform: translateY(-2px);
+}
+
+.btn-accent {
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    box-shadow: 0 5px 15px rgba(211, 158, 130, 0.3);
+}
+
+.btn-accent:hover {
+    background-color: var(--color-accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(211, 158, 130, 0.4);
+}
+
+/* ---------------------------------------------------------------------
+   4. Header / Navbar
+--------------------------------------------------------------------- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(244, 241, 234, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-border);
+    transition: all var(--transition-normal);
+}
+
+.header.scrolled {
+    background-color: var(--color-secondary);
+    padding: 0.5rem 0;
+    box-shadow: 0 4px 20px rgba(74, 107, 93, 0.05);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    transition: height var(--transition-normal);
+}
+
+.header.scrolled .header-container {
+    height: 70px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    line-height: 1.1;
+}
+
+.logo-subtitle {
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--color-text-muted);
+    font-weight: 600;
+}
+
+.nav-list {
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+.nav-link {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text-dark);
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--transition-normal);
+}
+
+.nav-link:hover {
+    color: var(--color-primary);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav-link.active {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* Menu Hambúrguer Mobile */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.menu-toggle .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-primary-dark);
+    border-radius: 2px;
+    transition: all var(--transition-normal);
+}
+
+/* ---------------------------------------------------------------------
+   5. Hero Section
+--------------------------------------------------------------------- */
+.hero {
+    padding-top: 180px; /* Compensa o header fixo */
+    padding-bottom: var(--spacing-xxl);
+    background-color: var(--color-secondary);
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--spacing-xxl);
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-tagline {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-primary-light);
+    display: inline-block;
+    margin-bottom: var(--spacing-sm);
+    padding: 0.25rem 0.75rem;
+    background-color: rgba(91, 131, 114, 0.08);
+    border-radius: 4px;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    line-height: 1.15;
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-title span {
+    color: var(--color-accent-dark);
+    font-style: italic;
+}
+
+.hero-description {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-xl);
+    font-weight: 400;
+}
+
+.hero-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.hero-image-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.hero-image-card {
+    position: relative;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+}
+
+.hero-image {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.hero-image-card:hover .hero-image {
+    transform: scale(1.03);
+}
+
+.floating-badge {
+    position: absolute;
+    bottom: var(--spacing-lg);
+    left: var(--spacing-lg);
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    box-shadow: var(--shadow-medium);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.badge-number {
+    font-family: var(--font-heading);
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.badge-text {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ---------------------------------------------------------------------
+   6. Sobre Mim Section
+--------------------------------------------------------------------- */
+.sobre {
+    background-color: var(--color-card-bg);
+}
+
+.sobre-container {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: var(--spacing-xxl);
+    align-items: center;
+}
+
+.sobre-image-wrapper {
+    position: relative;
+}
+
+.sobre-image-card {
+    position: relative;
+    z-index: 1;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+}
+
+.sobre-image {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+}
+
+.sobre-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-secondary);
+    border-radius: var(--border-radius-lg);
+    border: 2px solid var(--color-border);
+    z-index: 0;
+}
+
+.sobre-content {
+    max-width: 580px;
+}
+
+.sobre-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+.sobre-text p {
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-sm);
+}
+
+.highlight-quote {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--color-primary-dark);
+    border-left: 3px solid var(--color-accent);
+    padding-left: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+    line-height: 1.4;
+}
+
+.sobre-credentials {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--spacing-lg);
+}
+
+.credential-item strong {
+    display: block;
+    font-size: 0.9375rem;
+    color: var(--color-text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.credential-item span {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+}
+
+/* ---------------------------------------------------------------------
+   7. Especialidades Section
+--------------------------------------------------------------------- */
+.especialidades {
+    background-color: var(--color-secondary);
+}
+
+.especialidades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.especialidade-card {
+    background-color: var(--color-card-bg);
+    padding: var(--spacing-xl) var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-normal);
+}
+
+.especialidade-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--color-primary-light);
+}
+
+.card-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: var(--border-radius-sm);
+    background-color: rgba(74, 107, 93, 0.06);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    transition: all var(--transition-normal);
+}
+
+.especialidade-card:hover .card-icon {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+.card-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.especialidade-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.375rem;
+    color: var(--color-primary-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.especialidade-card p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+/* ---------------------------------------------------------------------
+   8. Como Funciona Section
+--------------------------------------------------------------------- */
+.como-funciona {
+    background-color: var(--color-card-bg);
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-md) 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: var(--color-border);
+    top: 0;
+    bottom: 0;
+    left: 40px;
+}
+
+.timeline-item {
+    padding: var(--spacing-md) 0 var(--spacing-lg) 90px;
+    position: relative;
+}
+
+.timeline-number {
+    position: absolute;
+    left: 20px;
+    top: var(--spacing-md);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.125rem;
+    z-index: 2;
+    box-shadow: 0 0 0 4px var(--color-card-bg);
+}
+
+.timeline-content {
+    background-color: var(--color-secondary);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--color-border);
+}
+
+.timeline-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    color: var(--color-primary-dark);
+    margin-bottom: var(--spacing-xs);
+}
+
+.timeline-content p {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+}
+
+/* ---------------------------------------------------------------------
+   9. Modalidades
+--------------------------------------------------------------------- */
+.modalidades {
+    background-color: var(--color-secondary);
+}
+
+.modalities-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    max-width: 1000px;
+}
+
+.modality-card {
+    background-color: var(--color-card-bg);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.modality-card.featured {
+    border: 2px solid var(--color-primary);
+    box-shadow: var(--shadow-medium);
+}
+
+.modality-badge {
+    position: absolute;
+    top: -15px;
+    right: var(--spacing-lg);
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--border-radius-pill);
+    box-shadow: 0 4px 10px rgba(211, 158, 130, 0.3);
+}
+
+.modality-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.modality-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background-color: rgba(74, 107, 93, 0.08);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modality-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.modality-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-primary-dark);
+}
+
+.modality-card p {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1;
+}
+
+.modality-meta {
+    font-size: 0.875rem;
+    color: var(--color-text-dark);
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--spacing-sm);
+}
+
+/* ---------------------------------------------------------------------
+   10. Seção de Contato
+--------------------------------------------------------------------- */
+.contato {
+    background-color: var(--color-card-bg);
+}
+
+.contato-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xxl);
+    align-items: start;
+}
+
+.contato-info {
+    max-width: 500px;
+}
+
+.contato-text {
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-xl);
+}
+
+.contato-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.contato-detail-item {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+}
+
+.detail-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(211, 158, 130, 0.1);
+    color: var(--color-accent-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.detail-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.contato-detail-item h4 {
+    font-size: 0.9375rem;
+    color: var(--color-text-dark);
+    margin-bottom: 2px;
+}
+
+.contato-detail-item p,
+.contact-link {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+}
+
+.contact-link:hover {
+    color: var(--color-primary);
+}
+
+/* Formulário de Contato */
+.contato-form-wrapper {
+    background-color: var(--color-secondary);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--color-border);
+}
+
+.contato-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+.form-group input,
+.form-group textarea {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    padding: 0.75rem 1rem;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-input-bg);
+    color: var(--color-text-dark);
+    transition: all var(--transition-fast);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #A0A5A2;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background-color: var(--color-text-light);
+    box-shadow: 0 0 0 3px rgba(74, 107, 93, 0.15);
+}
+
+.form-status-msg {
+    font-size: 0.9375rem;
+    text-align: center;
+    margin-top: var(--spacing-sm);
+    font-weight: 500;
+    padding: 0;
+    border-radius: var(--border-radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.form-status-msg.success {
+    color: #276749;
+    background-color: #E6F4EA;
+    border: 1px solid #A8DADC;
+    padding: 0.75rem 1rem;
+}
+
+.form-status-msg.error {
+    color: #9B2C2C;
+    background-color: #FFF5F5;
+    border: 1px solid #FEB2B2;
+    padding: 0.75rem 1rem;
+}
+
+/* ---------------------------------------------------------------------
+   11. Footer / Rodapé
+--------------------------------------------------------------------- */
+.footer {
+    background-color: var(--color-primary-dark);
+    color: rgba(255, 255, 255, 0.7);
+    padding: var(--spacing-xxl) 0 var(--spacing-lg);
+    font-size: 0.9375rem;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-xxl);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer-info h3 {
+    font-family: var(--font-heading);
+    color: var(--color-text-light);
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-info p {
+    margin-bottom: var(--spacing-sm);
+}
+
+.ethical-notice {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.45);
+    max-width: 480px;
+    line-height: 1.4;
+}
+
+.footer-links ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    align-items: flex-end;
+}
+
+.footer-links a:hover {
+    color: var(--color-text-light);
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* ---------------------------------------------------------------------
+   12. Botão Flutuante de WhatsApp
+--------------------------------------------------------------------- */
+.whatsapp-float-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: #FFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transition: all var(--transition-normal);
+}
+
+.whatsapp-float-btn svg {
+    width: 32px;
+    height: 32px;
+}
+
+.whatsapp-float-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background-color: #128C7E;
+}
+
+/* Animação de pulso no WhatsApp */
+.whatsapp-float-btn::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #25D366;
+    opacity: 0.4;
+    z-index: -1;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
+/* ---------------------------------------------------------------------
+   13. Efeito Reveal de Scroll (Intersection Observer)
+--------------------------------------------------------------------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------------------------------------------------------------------
+   14. Responsividade (Media Queries)
+--------------------------------------------------------------------- */
+
+/* Tablets e Computadores Pequenos */
+@media (max-width: 992px) {
+    section {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+        text-align: center;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-title {
+        font-size: 2.75rem;
+    }
+    
+    .hero-actions {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .hero-image {
+        height: 360px;
+    }
+
+    .sobre-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .sobre-image-card {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    
+    .sobre-image-wrapper::before {
+        left: 20px;
+        max-width: 450px;
+    }
+    
+    .sobre-content {
+        max-width: 100%;
+    }
+
+    .modalities-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .contato-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .contato-info {
+        max-width: 100%;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        text-align: center;
+    }
+    
+    .footer-links ul {
+        align-items: center;
+    }
+}
+
+/* Dispositivos Móveis */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background-color: var(--color-secondary);
+        border-left: 1px solid var(--color-border);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+        padding: 100px var(--spacing-lg) var(--spacing-lg);
+        transition: right var(--transition-normal);
+        z-index: 1000;
+    }
+    
+    .nav.open {
+        right: 0;
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .nav-link {
+        font-size: 1.125rem;
+        display: block;
+    }
+    
+    .header-cta {
+        display: none; /* Esconde do header e deixa visível no menu se necessário, ou mantém somente o CTA da hero */
+    }
+    
+    /* Transformações do Hambúrguer ativo */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+    
+    .hero {
+        padding-top: 140px;
+    }
+    
+    .hero-title {
+        font-size: 2.25rem;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+    }
+    
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .sobre-credentials {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .timeline::after {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        padding-left: 55px;
+    }
+    
+    .timeline-number {
+        left: 0;
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+    }
+
+    .whatsapp-float-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .whatsapp-float-btn svg {
+        width: 26px;
+        height: 26px;
+    }
+}
